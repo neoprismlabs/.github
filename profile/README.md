@@ -2,160 +2,53 @@
 
 ## Overview
 
-NeoPrism Labs develops a comprehensive Flutter UI toolkit implementing neobrutalism design principles. Our component libraries feature bold borders, vibrant colors, and interactive shadow effects that create a distinctive visual identity while maintaining production-ready quality standards.
+NeoPrism Labs develops open-source UI technologies focusing on distinctive visual design systems and developer experience. Our flagship project is a neobrutalism-inspired UI toolkit for Flutter, providing developers with a comprehensive component library featuring bold borders, vibrant colors, and interactive shadow effects.
 
-## Architecture Vision
+## Architecture
 
-### Component Design Philosophy
+### Plugin Architecture
 
-Our components follow a structured hierarchy designed for consistency and extensibility:
+NeoPrism components are built on a flexible plugin architecture that enables:
 
-```mermaid
-flowchart TD
-    A[NeoPrismComponent] --> B[Interactive Components]
-    A --> C[Display Components]
-    A --> D[Layout Components]
-    
-    B --> BA[NeoButton]
-    B --> BB[NeoInput]
-    B --> BC[NeoCheckbox]
-    B --> BD[NeoToggle]
-    B --> BE[NeoDropdown]
-    B --> BF[NeoSlider]
-    
-    C --> CA[NeoBadge]
-    C --> CB[NeoCard]
-    C --> CC[NeoProgressBar]
-    
-    D --> DA[NeoContainer]
-    D --> DB[NeoGrid]
-    
-    style A fill:#f9f,stroke:#333,stroke-width:2px
-```
+- **Analytics Integration**: Components report user interactions that can be captured by analytics providers
+- **Extensible Component System**: Core components can be extended with custom behaviors
+- **Localization Support**: Text elements support internationalization through pluggable translation providers
+- **Theme Inheritance**: Components inherit from a centralized theme while supporting local customization
 
-### Planned Plugin Architecture
+Our architecture follows composition over inheritance principles, making components both flexible and maintainable. Each component is built using a consistent state management pattern that enables tracking capabilities while maintaining Flutter's performance characteristics.
 
-Our roadmap includes a pluggable architecture that will enable:
+## Developer Environment
 
-```mermaid
-graph LR
-    A[NeoPrism Core] --> B[Analytics Plugin]
-    A --> C[Localization Plugin]
-    A --> D[Theme Extension Plugin]
-    A --> E[Custom Plugin]
-    
-    B --> BA[Google Analytics]
-    B --> BB[Firebase Analytics]
-    B --> BC[Custom Analytics]
-    
-    C --> CA[Flutter Intl]
-    C --> CB[Easy Localization]
-    
-    style A fill:#bbf,stroke:#336,stroke-width:4px
-```
+### Component Development
 
-All components emit standardized interaction events that can be captured and processed by analytics plugins, enabling comprehensive user behavior tracking while maintaining separation of concerns.
+Components follow a standardized development framework:
 
-## Component Lifecycle
+1. Abstract base classes define component contracts
+2. State management follows Flutter best practices
+3. Theming integrates with the global system
+4. All components include comprehensive test coverage
 
-```mermaid
-stateDiagram-v2
-    [*] --> Idle
-    Idle --> Hovered: Mouse Enter
-    Hovered --> Pressed: Mouse Down
-    Pressed --> Released: Mouse Up
-    Released --> Hovered: Stay Hovered
-    Released --> Triggered: Action Executed
-    Hovered --> Idle: Mouse Exit
-    Triggered --> Idle
-    
-    note right of Triggered
-        Analytics event emitted
-        with component metadata
-    end note
-```
+### Contributing
 
-Each component implements this interaction lifecycle, providing consistent behavior and predictable analytics events.
+We welcome contributions following our development guidelines:
 
-## Development Standards
-
-Our components adhere to strict development standards:
-
-```mermaid
-graph TD
-    A[Component Development] --> B[1. Interface Definition]
-    B --> C[2. State Management]
-    C --> D[3. Theme Integration]
-    D --> E[4. Interaction Tracking]
-    E --> F[5. Accessibility]
-    F --> G[6. Documentation]
-    G --> H[7. Testing]
-```
-
-### Code Organization
-
-```mermaid
-flowchart TD
-    A[lib/] --> B[src/]
-    B --> C[components/]
-    B --> D[theme/]
-    B --> E[analytics/]
-    
-    C --> C1[abstract/]
-    C --> C2[buttons/]
-    C --> C3[input/]
-    C --> C4[display/]
-    C --> C5[layout/]
-```
-
-## Current Projects
-
-### Core Library
-The foundation of our ecosystem containing all UI components, theming system, and infrastructure.
-
-### Component Playground
-An interactive showcase allowing developers to explore and customize components in real-time.
-
-### Documentation Site
-Comprehensive documentation with examples, API references, and design guidelines.
+- Components must implement the `NeoPrismComponent` interface
+- All user interactions should support tracking
+- Components should be fully accessible
+- Documentation must include examples and property descriptions
 
 ## Resources
 
 - **Website**: [neoprismlabs.in](https://neoprismlabs.in)
 - **Component Playground**: [playground.neoprismlabs.in](https://playground.neoprismlabs.in)
 - **Core Package**: [pub.dev/packages/neoprism_core](https://pub.dev/packages/neoprism_core)
-- **GitHub Repository**: [github.com/NeoPrismLabs/neoprism-core](https://github.com/NeoPrismLabs/neoprism-core)
+- **Documentation**: Available in respective repositories
 
-## Contribution Guidelines
+## Current Projects
 
-NeoPrism Labs welcomes contributions that align with our design philosophy and technical standards. Contributors should:
-
-1. Familiarize themselves with the neobrutalism design principles
-2. Follow the established component architecture
-3. Include comprehensive documentation and tests
-4. Ensure accessibility compliance
-
-## Roadmap
-
-```mermaid
-gantt
-    title NeoPrism Development Roadmap
-    dateFormat  YYYY-MM-DD
-    
-    section Core Library
-    Foundation Components    :done, 2025-01-01, 2025-04-15
-    Advanced Components      :active, 2025-04-16, 2025-06-30
-    Plugin Architecture      :2025-07-01, 2025-09-30
-    
-    section Tooling
-    Component Playground     :done, 2025-03-01, 2025-04-30
-    Designer Integration     :2025-08-01, 2025-10-31
-    
-    section Documentation
-    API Reference            :done, 2025-04-01, 2025-05-15
-    Design Guidelines        :active, 2025-05-16, 2025-07-15
-    Video Tutorials          :2025-07-16, 2025-09-15
-```
+- **NeoPrism Core**: Flutter UI component library implementing neobrutalism design principles
+- **NeoPrism Playground**: Interactive demonstration of components with customization options
+- **NeoPrism Analytics**: Plugin for capturing component interactions and user behavior
 
 ---
 
